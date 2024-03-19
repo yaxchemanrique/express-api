@@ -6,7 +6,6 @@ const PORT = 3000;
 const tasks = [...DB_TASKS];
 
 const app = express();
-// app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(cors());
 
@@ -40,14 +39,6 @@ app.delete('/tasks/:id', (req, res) => {
 });
 
 app.patch('/tasks/:id', (req, res) => {
-  const patchTaskId = req.params.id;
-  const patchTaskBody = req.body.task;
-  const patchTask = tasks.find(task => task.id == patchTaskId);
-  patchTask.task = patchTaskBody
-  res.send(patchTask);
-})
-
-app.put('/tasks/:id', (req, res) => {
   const patchTaskId = req.params.id;
   const patchTaskBody = req.body.task;
   const patchTask = tasks.find(task => task.id == patchTaskId);
